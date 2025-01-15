@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up & Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function toggleForm(formType) {
+            const loginForm = document.getElementById('login-form');
+            const signUpForm = document.getElementById('sign-up-form');
+            if (formType === 'login') {
+                loginForm.style.display = 'block';
+                signUpForm.style.display = 'none';
+            } else {
+                loginForm.style.display = 'none';
+                signUpForm.style.display = 'block';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <form id="login-form" action="#">
+            <img src="logo.png" alt="Logo" class="logo" width="2px",height="70px">
+            <div class="input_field">
+                <input type="text" required>
+                <label>Enter your Email</label>
+            </div>
+            <div class="input_field">
+                <input type="password" required>
+                <label>Enter your Password</label>
+            </div>
+            <div class="forget">
+                <label for="remember">
+                    <input type="checkbox" id="remember">
+                    <p>Remember me</p>
+                </label>
+                <a href="#">Forget Password?</a>
+            </div>
+            <button type="submit">Log In</button>
+            <p>Don't have an account? <a href="javascript:void(0);" onclick="toggleForm('sign-up')">Sign Up</a></p>
+        </form>
+
+        <form id="sign-up-form" action="#" style="display: none;">
+            <img src="logo.png" alt="Logo" class="logo" width="2px" height="70px">
+            <div class="input_field">
+                <input type="text" required>
+                <label>Enter your Name</label>
+            </div>
+            <div class="input_field">
+                <input type="email" required>
+                <label>Enter your Email</label>
+            </div>
+            <div class="input_field">
+                <input type="password" required>
+                <label>Enter your Password</label>
+            </div>
+            <div class="input_field">
+                <input type="password" required>
+                <label>Confirm your Password</label>
+            </div>
+            <button type="submit">Sign Up</button>
+            <p>Already have an account? <a href="javascript:void(0);" onclick="toggleForm('login')">Log In</a></p>
+        </form>
+    </div>
+</body>
+</html>
