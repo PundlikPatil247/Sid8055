@@ -17,24 +17,42 @@
                 signUpForm.style.display = 'block';
             }
         }
+
+        function togglePasswordVisibility() {
+            const passwordFields = document.querySelectorAll('.password-field');
+            passwordFields.forEach(field => {
+                if (field.type === 'password') {
+                    field.type = 'text';
+                } else {
+                    field.type = 'password';
+                }
+            });
+        }
     </script>
 </head>
 <body>
     <div class="wrapper">
         <form id="login-form" action="#">
-            <img src="logo.png" alt="Logo" class="logo" width="2px",height="70px">
+            <img src="logo.png" alt="Logo" class="logo" width="50px" height="100px">
             <div class="input_field">
                 <input type="text" required>
                 <label>Enter your Email</label>
+                <i class="bx bxs-user"></i>
             </div>
             <div class="input_field">
-                <input type="password" required>
+                <input type="password" class="password-field" required>
                 <label>Enter your Password</label>
+                <i class="bx bxs-lock"></i>
+            </div>
+            <div class="show-password">
+                <input type="checkbox" id="show-password-login" onclick="togglePasswordVisibility()">
+                <label for="show-password-login">Show Password</label>
             </div>
             <div class="forget">
                 <label for="remember">
                     <input type="checkbox" id="remember">
                     <p>Remember me</p>
+                    <i class="bx bx-check"></i>
                 </label>
                 <a href="#">Forget Password?</a>
             </div>
@@ -43,7 +61,7 @@
         </form>
 
         <form id="sign-up-form" action="#" style="display: none;">
-            <img src="logo.png" alt="Logo" class="logo" width="2px" height="70px">
+            <img src="logo.png" alt="Logo" class="logo" width="50px" height="100px">
             <div class="input_field">
                 <input type="text" required>
                 <label>Enter your Name</label>
@@ -53,16 +71,21 @@
                 <label>Enter your Email</label>
             </div>
             <div class="input_field">
-                <input type="password" required>
+                <input type="password" class="password-field" required>
                 <label>Enter your Password</label>
             </div>
             <div class="input_field">
-                <input type="password" required>
+                <input type="password" class="password-field" required>
                 <label>Confirm your Password</label>
+            </div>
+            <div class="show-password">
+                <input type="checkbox" id="show-password-signup" onclick="togglePasswordVisibility()">
+                <label for="show-password-signup">Show Password</label>
             </div>
             <button type="submit">Sign Up</button>
             <p>Already have an account? <a href="javascript:void(0);" onclick="toggleForm('login')">Log In</a></p>
         </form>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
